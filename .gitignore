@@ -12,3 +12,6 @@ target/
 
 # Branch switching
 generated/
+
+# log files
+hms-users-service/users-service.log
