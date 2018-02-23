@@ -4,7 +4,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/spring-petclinic/spring-petclinic-microservices-config
+          uri: https://github.com/sant11/hms-config
 ---
 spring:
   profiles: local

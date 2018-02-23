@@ -1,9 +1,9 @@
 'use strict';
 /* App Module */
-var petClinicApp = angular.module('hmsApp', [
-    'ui.router', 'layoutNav', 'layoutFooter', 'layoutWelcome']);
+var hmsApp = angular.module('hmsApp', [
+    'ui.router', 'layoutNav', 'layoutFooter', 'layoutWelcome','userList']);
 
-petClinicApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function(
+	hmsApp.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function(
     $stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
     // safari turns to be lazy sending the Cache-Control header

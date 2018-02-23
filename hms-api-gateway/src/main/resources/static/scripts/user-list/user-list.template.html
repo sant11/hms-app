@@ -1,0 +1,33 @@
+<h2>Users</h2>
+
+<form onsubmit="javascript:void(0)" style="max-width: 20em; margin-top: 2em;">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Filter" ng-model="$ctrl.query" />
+    </div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+    	<th>Link</th>
+        <th>Login</th>
+        <!-- <th class="hidden-sm hidden-xs">Address</th> -->
+        <th>First name</th>
+        <th>Last name</th>
+        <th class="hidden-xs">Email</th>
+    </tr>
+    </thead>
+<!-- 
+    <tr ng-repeat="user in $ctrl.users | filter:$ctrl.query track by user.id">
+        <td>
+            <a ui-sref="userDetails({ userId: user.id })">
+                {{user.firstName}} {{user.lastName}}
+            </a>
+        </td>
+        <td class="hidden-sm hidden-xs">{{user.login}}</td>
+        <td>{{user.firstName}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td class="hidden-xs"><span ng-repeat="pet in owner.pets track by pet.id">{{pet.name + ' '}}</span></td>
+    </tr> -->
+</table>

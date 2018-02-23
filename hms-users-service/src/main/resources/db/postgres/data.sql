@@ -1,0 +1,1 @@
+INSERT INTO users(login,password,fname,lname) VALUES('sant','sant','bartek','sant');

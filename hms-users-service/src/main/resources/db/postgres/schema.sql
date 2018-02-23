@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS hms;
+
+CONNECT hms;
+
+
+CREATE USER IF NOT EXISTS hms_user WITH PASSWORD 'HMSpass!';
+GRANT ALL PRIVILEGES ON DATABASE "hms" to hms_user;
+
+USE hms;
+
+CREATE TABLE IF NOT EXISTS public.users (
+  id BIGSERIAL,
+  login VARCHAR(30) NOT NULL,
+  password TEXT,
+  fname VARCHAR(255) NOT NULL,
+  lname VARCHAR(255) NOT NULL
+);
+
+GRANT ALL ON TABLE users TO hms_user;
