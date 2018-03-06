@@ -66,7 +66,7 @@ services:
      - config-server
      - discovery-server
      - users-db     
-#     - tracing-server
+     - tracing-server
     depends_on:
      - config-server
      - discovery-server
@@ -120,7 +120,7 @@ services:
      - users-service
 #     - visits-service
 #     - vets-service
-#     - tracing-server
+     - tracing-server
     depends_on:
      - config-server
      - discovery-server
@@ -128,28 +128,28 @@ services:
     ports:
      - 8180:8180
 
-#  tracing-server:
-#    image: hms/spring-petclinic-tracing-server
-#    container_name: tracing-server
-#    links:
-#     - config-server
-#     - discovery-server
-#    depends_on:
-#     - config-server
-#     - discovery-server
-#    entrypoint: ["./wait-for-it.sh","discovery-server:8761","--timeout=60","--","java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-#    ports:
-#     - 9411:9411
-#
-#  admin-server:
-#    image: hms/spring-petclinic-admin-server
-#    container_name: admin-server
-#    links:
-#     - config-server
-#     - discovery-server
-#    depends_on:
-#     - config-server
-#     - discovery-server
-#    entrypoint: ["./wait-for-it.sh","discovery-server:8761","--timeout=60","--","java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
-#    ports:
-#     - 9090:9090
+  tracing-server:
+    image: hms/spring-petclinic-tracing-server
+    container_name: tracing-server
+    links:
+     - config-server
+     - discovery-server
+    depends_on:
+     - config-server
+     - discovery-server
+    entrypoint: ["./wait-for-it.sh","discovery-server:8761","--timeout=60","--","java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+    ports:
+     - 9411:9411
+
+  admin-server:
+    image: hms/spring-petclinic-admin-server
+    container_name: admin-server
+    links:
+     - config-server
+     - discovery-server
+    depends_on:
+     - config-server
+     - discovery-server
+    entrypoint: ["./wait-for-it.sh","discovery-server:8761","--timeout=60","--","java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+    ports:
+     - 9090:9090
