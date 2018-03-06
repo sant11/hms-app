@@ -1,5 +1,7 @@
 package org.hms.api.boundary.web;
 
+import java.util.Collection;
+
 import org.hms.api.application.UserDetails;
 import org.hms.api.application.UserServiceClient;
 import org.slf4j.Logger;
@@ -29,5 +31,15 @@ public class ApiGatewayController {
         
         return user;
     }
-	
+
+    @GetMapping(value = "users")
+    public UserDetails[] getUsers() {
+    	log.info("start getting users data");
+    	
+        final UserDetails[] users = userServiceClient.getUsers();
+
+        log.info("end getting user data - users fetched: {}", users.length);
+        
+        return users;
+    }
 }

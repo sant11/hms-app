@@ -453,3 +453,20 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 .margin-5px {
   margin: 5px;
 }
+
+.logged-user-text {
+	color: black;
+	font-size: 11px;
+	font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	display: block;
+	padding: .5rem 1rem;
+}
+
+@media (min-width: 992px) {
+	.logged-user-text {
+		color: white;
+	}	
+}
+

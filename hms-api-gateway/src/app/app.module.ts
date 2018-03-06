@@ -8,16 +8,21 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 
 import { UserService } from './user.service';
+import { AppRoutingModule } from './/app-routing.module';
+import { UsersComponent } from './users/users.component';
+import { UserMainViewComponent } from './user-main-view/user-main-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    UsersComponent,
+    UserMainViewComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpClientModule
+    BrowserModule, FormsModule, HttpClientModule, AppRoutingModule
   ],
   providers: [ UserService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,UserComponent]
 })
 export class AppModule { }

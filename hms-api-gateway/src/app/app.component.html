@@ -1,55 +1,38 @@
-<!--The content below is only a placeholder and can be replaced.
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}
-  </h1>
-  <app-user></app-user>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
--->
-		<div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+      <!-- 
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Strona główna</a>
+         -->
+         <app-user></app-user>
+         
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#page-top" routerLink="/main">Strona główna</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#features">Wysłane wiadomości</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Moje alarmy</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#page-top" routerLink="/users">Administracja</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download">Instrukcja</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-	
-		  <div class="row">			
-			<div class="col text-center">
-				<app-user></app-user>
-		          <h1 class="mb-5">Wyślij informację lub włącz alarm! {{ title }}</h1>
-			</div>			  
-		  </div>
-		  <div class="row">			
-			<div class="col text-center">
-				<a href="#download" class="btn btn-outline btn-xl js-scroll-trigger mb-5">Zapoznaj się z instrukcją</a>
-			</div>	
-		  </div>
-		  <div class="row">			
-			<div class="col text-center">
-			      <h1>Wykonaj jedną z akcji:</h1>
-			</div>
-		  </div>
 
-    <div class="row">        
-		<div class="col-md-2"></div>
-        <div class="col-md-4 text-center">
-			<a href="#download" class="background-color-aqua btn btn-outline btn-xl js-scroll-trigger margin-5px">Wyślij informację</a>  				  
-		</div>
-        <div class="col-md-4 text-center">
-			<a href="#download" class="background-color-red btn btn-outline btn-xl js-scroll-trigger margin-5px">Włącz alarm</a>
-		</div>
-        <div class="col-md-2"></div>
-    </div>
-
-		
-		</div>
-
+<header class="masthead">
+	<router-outlet></router-outlet>
+</header>

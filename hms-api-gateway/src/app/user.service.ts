@@ -13,6 +13,7 @@ import { User } from './user';
 export class UserService {
 
   private userUrl = 'users/1';
+  private usersUrl = 'users';
   
   constructor(private http: HttpClient) { }
     
@@ -21,5 +22,10 @@ export class UserService {
     return this.http.get<User>(this.userUrl);
   }
 
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.usersUrl);
+  }
+  
+  
   
 }
