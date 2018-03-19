@@ -8,6 +8,7 @@ import org.hms.users.model.User;
 import org.hms.users.model.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.samples.petclinic.monitoring.Monitored;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,14 +47,21 @@ public class UserResource {
         return userRepository.findAll();
     }
     
-    @PutMapping(value = "/{userId}")
+    @PutMapping
     @Monitored
-    public User updateOwner(@PathVariable("userId") Long userId, @Valid @RequestBody User userRequest) {
-        final User userModel = userRepository.findOne(userId);
+    public User updateOwner(@Valid @RequestBody User userRequest) {
+        final User userModel = userRepository.findOne(userRequest.getId());
         userModel.setFirstName(userRequest.getFirstName());
         userModel.setLastName(userRequest.getLastName());
         log.info("Saving user {}", userModel);
         return userRepository.save(userModel);
+    }
+    
+    @DeleteMapping
+    public void test(@PathVariable("userId") Long userId) {
+    	userRepository.delete(userId);
+    	
+    	log.info("user deleted: {}", userId);
     }
     
 }

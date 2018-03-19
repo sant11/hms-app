@@ -11,13 +11,15 @@ import { UserService } from './user.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { UsersComponent } from './users/users.component';
 import { UserMainViewComponent } from './user-main-view/user-main-view.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     UsersComponent,
-    UserMainViewComponent
+    UserMainViewComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule, AppRoutingModule

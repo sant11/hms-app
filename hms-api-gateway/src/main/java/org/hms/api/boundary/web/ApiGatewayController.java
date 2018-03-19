@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
@@ -42,4 +44,15 @@ public class ApiGatewayController {
         
         return users;
     }
+    
+    @PutMapping(value = "users")
+    public UserDetails update(@RequestBody UserDetails userDetails) {
+//    	log.info("start getting user data. User ID: {}", userId);
+    	
+        final UserDetails user = userServiceClient.update(userDetails);;
+
+//        log.info("end getting user data. User ID: {}", userId);
+        
+        return user;
+    }    
 }
