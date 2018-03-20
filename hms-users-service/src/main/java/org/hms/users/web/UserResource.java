@@ -49,14 +49,14 @@ public class UserResource {
     
     @PutMapping
     @Monitored
-    public User updateOwner(@Valid @RequestBody User userRequest) {
+    public User updateUser(@Valid @RequestBody User userRequest) {
         final User userModel = userRepository.findOne(userRequest.getId());
         userModel.setFirstName(userRequest.getFirstName());
         userModel.setLastName(userRequest.getLastName());
         log.info("Saving user {}", userModel);
         return userRepository.save(userModel);
     }
-    
+
     @DeleteMapping
     public void test(@PathVariable("userId") Long userId) {
     	userRepository.delete(userId);

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,4 +56,15 @@ public class ApiGatewayController {
         
         return user;
     }    
+
+    @PostMapping(value = "users")
+    public UserDetails create(@RequestBody UserDetails userDetails) {
+//    	log.info("start getting user data. User ID: {}", userId);
+    	
+        final UserDetails user = userServiceClient.create(userDetails);;
+
+//        log.info("end getting user data. User ID: {}", userId);
+        
+        return user;
+    }        
 }

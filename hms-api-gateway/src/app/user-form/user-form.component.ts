@@ -26,8 +26,13 @@ export class UserFormComponent implements OnInit {
   
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.userService.getUser(1)
-      .subscribe(user => this.user = user);
+
+    if(id) {
+      this.userService.getUser(id)
+        .subscribe(user => this.user = user);
+    } else {
+      this.user = new User();
+    }
   }
 
   goBack(): void {
@@ -35,7 +40,11 @@ export class UserFormComponent implements OnInit {
   }
   
   save(): void {
-    this.userService.updateUser(this.user).subscribe(() => this.goBack());
+    if(this.user.id) {
+      this.userService.updateUser(this.user).subscribe(() => this.goBack());
+    } else {
+      this.userService.addUser(this.user).subscribe(() => this.goBack());
+    }
   }
   
 }

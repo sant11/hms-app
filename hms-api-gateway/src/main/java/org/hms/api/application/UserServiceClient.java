@@ -31,8 +31,13 @@ public class UserServiceClient {
     	
     }
     
-    public void create() {
-//        loadBalancedRestTemplate.post("http://users-service/users/{userId}",);
+    public UserDetails create(final UserDetails userDetails) {
+
+        HttpEntity<UserDetails> entity = new HttpEntity<UserDetails>(userDetails);
+                
+        ResponseEntity<UserDetails> response = loadBalancedRestTemplate.exchange("http://users-service/users/", HttpMethod.POST, entity, UserDetails.class);
+
+        return response.getBody();
     }
     
     public UserDetails update(final UserDetails userDetails) {
