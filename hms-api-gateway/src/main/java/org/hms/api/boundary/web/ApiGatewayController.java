@@ -6,6 +6,7 @@ import org.hms.api.application.UserDetails;
 import org.hms.api.application.UserServiceClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,23 +49,33 @@ public class ApiGatewayController {
     
     @PutMapping(value = "users")
     public UserDetails update(@RequestBody UserDetails userDetails) {
-//    	log.info("start getting user data. User ID: {}", userId);
+   	    log.info("start updating user data. User ID: {}", userDetails.getId());
     	
         final UserDetails user = userServiceClient.update(userDetails);;
 
-//        log.info("end getting user data. User ID: {}", userId);
+        log.info("end updating user data. User ID: {}", userDetails.getId());
         
         return user;
     }    
 
     @PostMapping(value = "users")
     public UserDetails create(@RequestBody UserDetails userDetails) {
-//    	log.info("start getting user data. User ID: {}", userId);
+   	    log.info("start creating user data. User ID: {}", userDetails.getId());
     	
         final UserDetails user = userServiceClient.create(userDetails);;
 
-//        log.info("end getting user data. User ID: {}", userId);
-        
+        log.info("end creating user data. User ID: {}", userDetails.getId());
+
         return user;
     }        
+
+    @DeleteMapping(value = "users/{userId}")
+    public void create(final @PathVariable int userId) {
+   	    log.info("start deleting user. User ID: {}", userId);
+    	
+        userServiceClient.delete(userId);
+
+        log.info("end deleting user. User ID: {}", userId);
+        
+    }      
 }

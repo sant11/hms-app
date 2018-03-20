@@ -38,11 +38,13 @@ public class UserResource {
     }
     
     @GetMapping(value = "/{userId}")
+    @Monitored
     public User findUser(@PathVariable("userId") Long userId) {
         return userRepository.findOne(userId);
     }
     
     @GetMapping
+    @Monitored
     public List<User> findAll() {
         return userRepository.findAll();
     }
@@ -57,7 +59,8 @@ public class UserResource {
         return userRepository.save(userModel);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/{userId}")
+    @Monitored
     public void test(@PathVariable("userId") Long userId) {
     	userRepository.delete(userId);
     	
