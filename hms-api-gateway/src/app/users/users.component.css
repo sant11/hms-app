@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     min-width: 300px;
-    padding: 0px 20px 10px 20px;
+    margin-top: 20px;
+    /* padding: 0px 20px 10px 20px; */
   }
   
   .example-header {
@@ -20,6 +21,27 @@
     max-height: 500px;
     /* background: none; */
   }
+
+  .mat-column-id {
+    flex: 0 0 30px;
+  }
+
+  .mat-column-login {
+    flex: 0 0 125px;
+  }
+
+  .mat-column-edit {
+    flex: 0 0 50px;
+  }
+
+  .mat-column-delete {
+    flex: 0 0 50px;
+  }
+
+  .mat-icon-button {
+    background-color: white;
+  }
+
 /* 
   .mat-paginator {
     background: none;

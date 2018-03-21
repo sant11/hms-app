@@ -47,7 +47,7 @@ import { UserService } from '../user.service';
 
 export class UsersComponent {
 //export class TableOverviewExample {
-  displayedColumns = ['id', 'login', 'firstName', 'lastName', 'email'];
+  displayedColumns = ['id', 'login', 'firstName', 'lastName', 'email', 'edit', 'delete'];
   // dataSource: MatTableDataSource<UserData>;
   dataSource: MatTableDataSource<User>;
 

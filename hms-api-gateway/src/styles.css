@@ -1,4 +1,10 @@
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* 
+deeppurple-amber.css
+indigo-pink.css
+pink-bluegrey.css
+purple-green.css 
+*/
 
 html,
 body {
@@ -18,7 +24,7 @@ a {
 }
 
 a:hover, a:focus {
-  color: #fcbd20;
+  /* color: #fcbd20; */
 }
 
 hr {
@@ -76,7 +82,7 @@ section h2 {
 }
 
 #mainNav .navbar-brand:hover, #mainNav .navbar-brand:focus {
-  color: #fcbd20;
+  /* color: #fcbd20; */
 }
 
 #mainNav .navbar-toggler {
@@ -155,7 +161,7 @@ header.masthead {
   width: 100%;
   padding-top: 150px;
   padding-bottom: 100px;
-  color: white;
+  /* color: white; */
   background: url("/assets/img/bg-pattern.png"), #7b4397;
   background: url("/assets/img/bg-pattern.png"), -webkit-linear-gradient(to left, #da5743, #439793);
   background: url("/assets/img/bg-pattern.png"), linear-gradient(to left, #da5743, #439793);

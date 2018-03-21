@@ -1,3 +1,50 @@
+
+
+<div class="container">
+	
+	<mat-card>
+		<div class="row">
+			<div class="col text-right">
+				
+				<div class="example-container">
+					
+					<mat-form-field>
+						<mat-label>Type unique login</mat-label>
+						<input [(ngModel)]="user.login" matInput placeholder="Login" required>
+					</mat-form-field>
+					
+					<mat-form-field>
+						<input [(ngModel)]="user.firstName" matInput placeholder="First Name">
+					</mat-form-field>
+				
+					<mat-form-field>
+						<input [(ngModel)]="user.lastName" matInput placeholder="Last Name">
+					</mat-form-field>
+			
+					<mat-form-field>
+						<input [(ngModel)]="user.email" matInput placeholder="Email" required>			
+					</mat-form-field>
+										
+				</div>
+			</div>
+		</div>
+	
+	</mat-card>
+	<div class="row">			
+		<div class="col text-right">
+			<button (click)="goBack()" mat-raised-button>go back</button>					
+		</div>				
+		<div class="col text-left">
+			<button (click)="save()" mat-raised-button>save</button>					
+		</div>
+	</div>
+	
+</div>
+	  
+
+
+
+<!-- 
 <div class="container">
 
 	<div class="row">			
@@ -61,3 +108,4 @@
 		</div>
 	</div>
 </div>
+ -->
