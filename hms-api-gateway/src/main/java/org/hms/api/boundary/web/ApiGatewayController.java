@@ -1,6 +1,5 @@
 package org.hms.api.boundary.web;
 
-import java.util.Collection;
 
 import org.hms.api.application.UserDetails;
 import org.hms.api.application.UserServiceClient;
