@@ -14,24 +14,36 @@
 		<mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
 		</ng-container>
 	
-		<!-- Progress Column -->
-		<ng-container matColumnDef="progress">
-		<mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
-		<mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+		<!-- Login Column -->
+		<ng-container matColumnDef="login">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> Login </mat-header-cell>
+		<mat-cell *matCellDef="let row"> {{row.login}} </mat-cell>
 		</ng-container>
 	
-		<!-- Name Column -->
-		<ng-container matColumnDef="name">
-		<mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
-		<mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+		<!-- First Name Column -->
+		<ng-container matColumnDef="firstName">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> First Name </mat-header-cell>
+		<mat-cell *matCellDef="let row"> {{row.firstName}} </mat-cell>
 		</ng-container>
 	
+		<!-- Last Name Column -->
+		<ng-container matColumnDef="lastName">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </mat-header-cell>
+		<mat-cell *matCellDef="let row"> {{row.lastName}} </mat-cell>
+		</ng-container>
+
+		<!-- Email Column -->
+		<ng-container matColumnDef="email">
+		<mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+		<mat-cell *matCellDef="let row"> {{row.email}} </mat-cell>
+		</ng-container>
+
 		<!-- Color Column -->
-		<ng-container matColumnDef="color">
+		<!-- <ng-container matColumnDef="color">
 		<mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
 		<mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
 		</ng-container>
-	
+	 -->
 		<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 		<mat-row *matRowDef="let row; columns: displayedColumns;">
 		</mat-row>
