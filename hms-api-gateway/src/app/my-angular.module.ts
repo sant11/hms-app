@@ -3,17 +3,17 @@ import { NgModule } from '@angular/core';
 
 import {MatTableModule, MatFormFieldModule, MatPaginatorModule, MatInputModule, 
     MatSortModule, MatButtonModule, MatCommonModule, MatCardModule, 
-    MatIconModule,MatMenuModule} from '@angular/material';
+    MatIconModule,MatMenuModule,MatTabsModule} from '@angular/material';
 
 @NgModule({
     imports: [
         MatTableModule, MatFormFieldModule, MatPaginatorModule, MatInputModule, MatSortModule, 
-        MatButtonModule,MatCommonModule,MatCardModule,MatIconModule,MatMenuModule
+        MatButtonModule,MatCommonModule,MatCardModule,MatIconModule,MatMenuModule,MatTabsModule
 
     ],
     exports: [
         MatTableModule, MatFormFieldModule, MatPaginatorModule, MatInputModule, MatSortModule, 
-        MatButtonModule,MatCommonModule,MatCardModule,MatIconModule,MatMenuModule
+        MatButtonModule,MatCommonModule,MatCardModule,MatIconModule,MatMenuModule,MatTabsModule
 
     ]
   })

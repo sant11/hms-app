@@ -3,6 +3,7 @@
     flex-direction: column;
     min-width: 300px;
     margin-top: 20px;
+    background-color: white;
     /* padding: 0px 20px 10px 20px; */
   }
   
@@ -27,7 +28,7 @@
   }
 
   .mat-column-login {
-    flex: 0 0 125px;
+    flex: 0 0 150px;
   }
 
   .mat-column-edit {
@@ -38,10 +39,20 @@
     flex: 0 0 50px;
   }
 
+  .mat-column-firstName {
+    flex: 0 0 150px;
+  }
+
+  .mat-column-lastName {
+    flex: 0 0 150px;
+  }
   .mat-icon-button {
     background-color: white;
   }
 
+  .margin-top {
+    margin-top: 20px;
+  }
 /* 
   .mat-paginator {
     background: none;
@@ -49,7 +60,7 @@
    */
 
   /* .mat-cell {
-    color: white;
+    color: whit;
   }
 
   .mat-header-cell {

@@ -34,7 +34,10 @@ export class UsersComponent implements OnInit {
 import {Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import { User } from '../user';
+import { NavLink } from '../navlink';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
+import { AdminTabLinks } from '../admin-tab-links';
 
 /**
  * @title Data table with sorting, pagination, and filtering.
@@ -52,14 +55,25 @@ export class UsersComponent {
   dataSource: MatTableDataSource<User>;
 
   users: User[];
+  activeLinkIndex: number = 0;
+  navLinks: NavLink[] = AdminTabLinks.NAVLINKS;
+
+  id: number = 1;
+  // navLinks: NavLink[] = [new NavLink('admin/users'),
+                                // new NavLink('new'),
+                                // new NavLink('admin/grouproles')];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private userService: UserService ) {
+
+  constructor(private userService: UserService,
+              private router: Router ) {
 
     this.users = [];
     
+
+    // routeLinks: any[];
     // // Create 100 users
     // const users: UserData[] = [];
     // for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
@@ -71,6 +85,17 @@ export class UsersComponent {
 
   ngOnInit() {
     this.getUsers();
+
+
+    this.router.events.subscribe((res) => {
+      
+    this.activeLinkIndex = AdminTabLinks.NAVLINKS.indexOf(AdminTabLinks.NAVLINKS.find(tab => tab.path === '.' + this.router.url));
+
+      // console.log('activeLinkIndex: ' + this.activeLinkIndex);
+      // console.log('res: ' + res);
+    });
+  // }
+
   }
 
   getUsers(): void {
@@ -99,6 +124,9 @@ export class UsersComponent {
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+
+
+
 }
 
 /** Builds and returns a new User. */
@@ -128,3 +156,10 @@ export class UsersComponent {
 //   progress: string;
 //   color: string;
 // }
+
+
+
+
+
+
+

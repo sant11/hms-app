@@ -1,7 +1,16 @@
 
 
 <div class="container">
-	
+
+		<div class="row margin-top">			
+				<div class="col">
+					<button (click)="goBack()" mat-raised-button>Back</button>					
+					<button (click)="save()" mat-raised-button>Save</button>					
+				</div>				
+				
+			</div>
+			
+
 	<mat-card>
 		<div class="row">
 			<div class="col text-right">
@@ -30,15 +39,7 @@
 		</div>
 	
 	</mat-card>
-	<div class="row">			
-		<div class="col text-right">
-			<button (click)="goBack()" mat-raised-button>go back</button>					
-		</div>				
-		<div class="col text-left">
-			<button (click)="save()" mat-raised-button>save</button>					
-		</div>
-	</div>
-	
+
 </div>
 	  
 

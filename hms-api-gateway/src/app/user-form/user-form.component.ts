@@ -1,11 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { User } from '../user';
 import { UserService } from '../user.service';
-
+import { NavLink } from '../navlink';
+import { AdminTabLinks } from '../admin-tab-links';
+// import { NAVLINKS } from '../admin-tab-links';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 
@@ -19,13 +21,15 @@ export class UserFormComponent implements OnInit {
   @Input() user: User;
   
   // email: FormControl;
-
+  activeLinkIndex: number = -1;
+  navLinks: NavLink[] = AdminTabLinks.NAVLINKS;
 
   
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) { }
   
   ngOnInit() {
@@ -34,6 +38,10 @@ export class UserFormComponent implements OnInit {
     // this.email = new FormControl('', [Validators.required, Validators.email]);
 
     this.getUser();
+
+    this.router.events.subscribe((res) => {
+      this.activeLinkIndex = AdminTabLinks.NAVLINKS.indexOf(AdminTabLinks.NAVLINKS.find(tab => tab.path === '.' + this.router.url));
+    });
   }
 
   // getErrorMessage() {
