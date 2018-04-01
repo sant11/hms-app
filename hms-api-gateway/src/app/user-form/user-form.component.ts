@@ -7,7 +7,6 @@ import { User } from '../user';
 import { UserService } from '../user.service';
 import { NavLink } from '../navlink';
 import { AdminTabLinks } from '../admin-tab-links';
-// import { NAVLINKS } from '../admin-tab-links';
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 
 
@@ -20,10 +19,9 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 export class UserFormComponent implements OnInit {
   @Input() user: User;
   
-  // email: FormControl;
+  
   activeLinkIndex: number = -1;
-  navLinks: NavLink[] = AdminTabLinks.NAVLINKS;
-
+  
   
   constructor(
     private route: ActivatedRoute,
@@ -39,16 +37,11 @@ export class UserFormComponent implements OnInit {
 
     this.getUser();
 
-    this.router.events.subscribe((res) => {
-      this.activeLinkIndex = AdminTabLinks.NAVLINKS.indexOf(AdminTabLinks.NAVLINKS.find(tab => tab.path === '.' + this.router.url));
-    });
+    // this.router.events.subscribe((res) => {
+      // this.activeLinkIndex = AdminTabLinks.NAVLINKS.indexOf(AdminTabLinks.NAVLINKS.find(tab => tab.path === '.' + this.router.url));
+    // });
   }
 
-  // getErrorMessage() {
-  //   return this.email.hasError('required') ? 'You must enter a value' :
-  //       this.email.hasError('email') ? 'Not a valid email' :
-  //           '';
-  // }
   
   getUser(): void {
     const id = +this.route.snapshot.paramMap.get('id');

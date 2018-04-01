@@ -56,7 +56,7 @@ export class UsersComponent {
 
   users: User[];
   activeLinkIndex: number = 0;
-  navLinks: NavLink[] = AdminTabLinks.NAVLINKS;
+  // navLinks: NavLink[] = AdminTabLinks.NAVLINKS;
 
   id: number = 1;
   // navLinks: NavLink[] = [new NavLink('admin/users'),
@@ -89,7 +89,7 @@ export class UsersComponent {
 
     this.router.events.subscribe((res) => {
       
-    this.activeLinkIndex = AdminTabLinks.NAVLINKS.indexOf(AdminTabLinks.NAVLINKS.find(tab => tab.path === '.' + this.router.url));
+    // this.activeLinkIndex = AdminTabLinks.NAVLINKS.indexOf(AdminTabLinks.NAVLINKS.find(tab => tab.path === '.' + this.router.url));
 
       // console.log('activeLinkIndex: ' + this.activeLinkIndex);
       // console.log('res: ' + res);

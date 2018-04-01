@@ -12,19 +12,13 @@ const routes: Routes = [
   { path: 'main', component: UserMainViewComponent },
   
   { path: 'admin', component: AdminComponent, children:[
-    // { path: ':id', component: UserFormComponent,outlet:'firstChild'},
+
     { path: 'users', component: UsersComponent,outlet:'firstChild'},
     { path: 'newUser', component: UserFormComponent,outlet:'firstChild'},
     { path: ':id/edituser', component: UserFormComponent,outlet:'firstChild'},
     { path: 'roles', component: RolesComponent,outlet:'firstChild'}
   ]}
 
-  // { path: ':index/edit', component: EditComponent, outlet:'editsection'}
-  // ,
-  // { path: 'admin/users/:id', component: UserFormComponent},
-  // { path: 'admin/users/new', component: UserFormComponent},
-  // { path: 'admin/roles', component: UsersComponent },
-  // { path: 'admin/grouproles', component: UsersComponent }
 ];
 
 @NgModule({

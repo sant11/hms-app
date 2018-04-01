@@ -1,11 +1,13 @@
 export class NavLink {
 
-  constructor (path: string, desc: string, active: boolean) {
+  constructor (path: string, desc: string, visible: boolean) {
     this.path = path;
     this.desc = desc;
-    this.active = active;    
+    this.visible = visible;    
+    
   }
   path: string;
   desc: string;
-  active: boolean;
+  visible: boolean;
+  
 }

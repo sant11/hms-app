@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.hms.users.model.User;
-import org.hms.users.dao.UserRepository;
+import org.hms.users.model.Role;
+import org.hms.users.dao.RoleRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.samples.petclinic.monitoring.Monitored;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,50 +21,50 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-@RequestMapping("/users")
+@RequestMapping("/roles")
 @RestController
 @RequiredArgsConstructor
 @Slf4j
-public class UserResource {
+public class RoleResource {
 
-	private final UserRepository userRepository;
-	
-	
+    private final RoleRepository roleRepository;
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Monitored
-    public void createUser(@Valid @RequestBody User user) {
-        userRepository.save(user);
-    }
+    public void createRole(@Valid @RequestBody Role role) {
+        roleRepository.save(role);
+    }    
+
     
-    @GetMapping(value = "/{userId}")
+    @GetMapping(value = "/{roleId}")
     @Monitored
-    public User findUser(@PathVariable("userId") Long userId) {
-        return userRepository.findOne(userId);
+    public Role findRole(@PathVariable("roleId") Long roleId) {
+        return roleRepository.findOne(roleId);
     }
     
     @GetMapping
     @Monitored
-    public List<User> findAll() {
-        return userRepository.findAll();
+    public List<Role> findAll() {
+        return roleRepository.findAll();
     }
     
     @PutMapping
     @Monitored
-    public User updateUser(@Valid @RequestBody User userRequest) {
-        final User userModel = userRepository.findOne(userRequest.getId());
-        userModel.setFirstName(userRequest.getFirstName());
-        userModel.setLastName(userRequest.getLastName());
-        log.info("Saving user {}", userModel);
-        return userRepository.save(userModel);
+    public Role updateRole(@Valid @RequestBody Role roleRequest) {
+        final Role roleModel = roleRepository.findOne(roleRequest.getId());
+        roleModel.setName(roleRequest.getName());
+        roleModel.setDescription(roleRequest.getDescription());
+        log.info("Saving role {}", roleModel);
+        return roleRepository.save(roleModel);
     }
 
-    @DeleteMapping(value = "/{userId}")
+    @DeleteMapping(value = "/{roleId}")
     @Monitored
-    public void test(@PathVariable("userId") Long userId) {
-    	userRepository.delete(userId);
+    public void test(@PathVariable("roleId") Long roleId) {
+    	roleRepository.delete(roleId);
     	
-    	log.info("user deleted: {}", userId);
+    	log.info("role deleted: {}", roleId);
     }
-    
+        
 }

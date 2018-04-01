@@ -1,16 +1,17 @@
 <div class="container">
+    
+    <nav mat-tab-nav-bar >
+        <a mat-tab-link
+           *ngFor="let routeLink of this.routeLinks; let i = index;"
+           [routerLink]="['/admin', {outlets: {'firstChild': [routeLink.path]}}]"
+           routerLinkActive
+           #rla="routerLinkActive"
+           [active]='rla.isActive'
+        >
+            {{routeLink.desc}}
+        </a>
+    </nav>    
 
-    <nav mat-tab-nav-bar>
-        <a mat-tab-link [routerLink]="['/admin', {outlets: {'firstChild': ['users']}}]">
-          Users
-        </a>
-        <a mat-tab-link [routerLink]="['/admin', {outlets: {'firstChild': ['newUser']}}]">
-          New User
-        </a>
-        <a mat-tab-link [routerLink]="['/admin', {outlets: {'firstChild': ['roles']}}]">
-          Roles
-        </a>
-    </nav>  
 
     <router-outlet name="firstChild"></router-outlet>
 
