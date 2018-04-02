@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "group_roles", schema="public")
 public class GroupRole {
@@ -32,8 +34,13 @@ public class GroupRole {
     @Column(name="description", nullable = false)
     private String description;
     
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "groupRole")
     private List<RolesGroupRole> rolesGroupRoles;
+
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "groupRole")
+    private List<UserGroupRoles> userGroupRoles;
 
     /**
      * @param id the id to set
@@ -89,5 +96,19 @@ public class GroupRole {
      */
     public List<RolesGroupRole> getRolesGroupRoles() {
         return rolesGroupRoles;
+    }
+
+    /**
+     * @param userGroupRoles the userGroupRoles to set
+     */
+    public void setUserGroupRoles(List<UserGroupRoles> userGroupRoles) {
+        this.userGroupRoles = userGroupRoles;
+    }
+
+    /**
+     * @return the userGroupRoles
+     */
+    public List<UserGroupRoles> getUserGroupRoles() {
+        return userGroupRoles;
     }
 }

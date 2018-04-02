@@ -17,6 +17,7 @@ import { UserMainViewComponent } from './user-main-view/user-main-view.component
 import { UserFormComponent } from './user-form/user-form.component';
 import { AdminComponent } from './admin/admin.component';
 import { RolesComponent } from './roles/roles.component';
+import { RoleService } from './role.service';
 
 
 @NgModule({
@@ -35,7 +36,7 @@ import { RolesComponent } from './roles/roles.component';
     FormsModule, HttpClientModule, AppRoutingModule
     ,MyAngularMaterialModule
   ],
-  providers: [ UserService ],
+  providers: [ UserService, RoleService ],
   bootstrap: [AppComponent,UserComponent]
 })
 export class AppModule { }

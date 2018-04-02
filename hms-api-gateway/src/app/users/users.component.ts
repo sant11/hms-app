@@ -49,19 +49,15 @@ import { AdminTabLinks } from '../admin-tab-links';
 })
 
 export class UsersComponent {
-//export class TableOverviewExample {
+
   displayedColumns = ['id', 'login', 'firstName', 'lastName', 'email', 'edit', 'delete'];
-  // dataSource: MatTableDataSource<UserData>;
+
   dataSource: MatTableDataSource<User>;
 
   users: User[];
   activeLinkIndex: number = 0;
-  // navLinks: NavLink[] = AdminTabLinks.NAVLINKS;
 
   id: number = 1;
-  // navLinks: NavLink[] = [new NavLink('admin/users'),
-                                // new NavLink('new'),
-                                // new NavLink('admin/grouproles')];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -72,14 +68,6 @@ export class UsersComponent {
 
     this.users = [];
     
-
-    // routeLinks: any[];
-    // // Create 100 users
-    // const users: UserData[] = [];
-    // for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
-
-    // // Assign the data to the data source for the table to render
-    // this.dataSource = new MatTableDataSource(this.users);
     this.dataSource = new MatTableDataSource(this.users);
   }
 
@@ -87,14 +75,12 @@ export class UsersComponent {
     this.getUsers();
 
 
-    this.router.events.subscribe((res) => {
-      
+    // this.router.events.subscribe((res) => {      
     // this.activeLinkIndex = AdminTabLinks.NAVLINKS.indexOf(AdminTabLinks.NAVLINKS.find(tab => tab.path === '.' + this.router.url));
 
       // console.log('activeLinkIndex: ' + this.activeLinkIndex);
       // console.log('res: ' + res);
-    });
-  // }
+    // });
 
   }
 
@@ -128,34 +114,6 @@ export class UsersComponent {
 
 
 }
-
-/** Builds and returns a new User. */
-// function createNewUser(id: number): UserData {
-//   const name =
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-//       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-//   return {
-//     id: id.toString(),
-//     name: name,
-//     progress: Math.round(Math.random() * 100).toString(),
-//     color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-//   };
-// }
-
-/** Constants used to fill up our data base. */
-// const COLORS = ['maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple',
-//   'fuchsia', 'lime', 'teal', 'aqua', 'blue', 'navy', 'black', 'gray'];
-// const NAMES = ['Maia', 'Asher', 'Olivia', 'Atticus', 'Amelia', 'Jack',
-//   'Charlotte', 'Theodore', 'Isla', 'Oliver', 'Isabella', 'Jasper',
-//   'Cora', 'Levi', 'Violet', 'Arthur', 'Mia', 'Thomas', 'Elizabeth'];
-
-// export interface UserData {
-//   id: string;
-//   name: string;
-//   progress: string;
-//   color: string;
-// }
 
 
 

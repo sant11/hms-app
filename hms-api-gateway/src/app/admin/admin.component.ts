@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
   constructor(private router: Router) { 
     this.routeLinks = AdminTabLinks.NAVLINKS;
 
-    this.activeLinkIndex = -1;
+    this.activeLinkIndex = 1;
   }
 
   ngOnInit(): void {

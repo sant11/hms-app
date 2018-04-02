@@ -61,7 +61,7 @@ public class RoleResource {
 
     @DeleteMapping(value = "/{roleId}")
     @Monitored
-    public void test(@PathVariable("roleId") Long roleId) {
+    public void delete(@PathVariable("roleId") Long roleId) {
     	roleRepository.delete(roleId);
     	
     	log.info("role deleted: {}", roleId);

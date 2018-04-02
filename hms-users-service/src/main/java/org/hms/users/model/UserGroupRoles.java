@@ -14,7 +14,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "user_group_roles", schema="public")
+@Table(name = "users_group_roles", schema="public")
 public class UserGroupRoles {
 
     public UserGroupRoles() {

@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "roles", schema="public")
 public class Role {
@@ -33,6 +35,7 @@ public class Role {
     @Column(name="description", nullable = false)
     private String description;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
     private List<RolesGroupRole> rolesGroupRole;
 

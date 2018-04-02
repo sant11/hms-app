@@ -1,3 +1,67 @@
-<p>
-  roles works!
-</p>
+<div class="container">	
+	
+	<div class="row margin-top">
+		<div class="col">
+			
+			<a mat-raised-button [routerLink]="['/admin', {outlets: {'firstChild': ['newRole']}}]">Add role</a>	
+			
+		</div>		
+	</div>
+
+
+	<div class="example-container mat-elevation-z8">
+		<div class="example-header">
+			<mat-form-field>
+				<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+			</mat-form-field>
+		</div>
+		
+		<mat-table [dataSource]="dataSource" matSort>
+		
+			<!-- ID Column -->
+			<ng-container matColumnDef="id">
+			<mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+			</ng-container>
+		
+			<!-- Login Column -->
+			<ng-container matColumnDef="name">
+			<mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+			</ng-container>
+		
+			<!-- First Name Column -->
+			<ng-container matColumnDef="description">
+			<mat-header-cell *matHeaderCellDef mat-sort-header>Description</mat-header-cell>
+			<mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+			</ng-container>
+		
+
+			<!-- Edit Column -->
+			<ng-container matColumnDef="edit">
+			<mat-header-cell *matHeaderCellDef mat-sort-header>Edit</mat-header-cell>
+			<mat-cell *matCellDef="let row" style="color: darkcyan" [routerLink]="['/admin',{outlets:{firstChild:row.id+'/editrole'}}]">Edit</mat-cell>
+			</ng-container>
+
+			<!-- Delete Column -->
+			<ng-container matColumnDef="delete">
+				<mat-header-cell *matHeaderCellDef mat-sort-header>Delete</mat-header-cell>
+				<mat-cell *matCellDef="let row" style="color: crimson" (click)="delete(user)">Delete</mat-cell>
+				</ng-container>
+
+			<!-- Color Column -->
+			<!-- <ng-container matColumnDef="color">
+			<mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
+			<mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+			</ng-container>
+		-->
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+			<mat-row *matRowDef="let row; columns: displayedColumns;">
+			</mat-row>
+		</mat-table>
+		
+		<mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+	</div>
+
+</div>
+
