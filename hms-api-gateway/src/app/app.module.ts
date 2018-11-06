@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { NgModule, ViewChild } from '@angular/core';
+import { NgModule, ViewChild,Injectable } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS }    from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -19,6 +19,17 @@ import { AdminComponent } from './admin/admin.component';
 import { RolesComponent } from './roles/roles.component';
 import { RoleService } from './role.service';
 
+
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor {
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    const xhr = req.clone({
+      headers: req.headers.set('X-Requested-With', 'XMLHttpRequest')
+    });
+    return next.handle(xhr);
+  }
+}
 
 @NgModule({
   declarations: [
@@ -36,7 +47,7 @@ import { RoleService } from './role.service';
     FormsModule, HttpClientModule, AppRoutingModule
     ,MyAngularMaterialModule
   ],
-  providers: [ UserService, RoleService ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true }, UserService, RoleService ],
   bootstrap: [AppComponent,UserComponent]
 })
 export class AppModule { }

@@ -1,6 +1,18 @@
+logging:
+  level:
+    org.springframework.security: DEBUG
+security:
+  sessions: ALWAYS
+  ignored:
+  - "*.bundle.*"
+  - favicon.ico
+spring:
+  session:
+    store-type: redis
 zuul:
   prefix: /api
   ignoredServices: '*'
+  sensitive-headers:
   routes:
     vets-service: /vet/**
     visits-service: /visit/**
